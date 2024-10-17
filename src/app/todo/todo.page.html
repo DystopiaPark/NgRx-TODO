@@ -1,0 +1,25 @@
+<content>
+  <div class="container">
+    <h2>Let's get things done!</h2>
+    <input [(ngModel)]="todo" />
+    <button
+      color="success"
+      fill="outline"
+      (click)="addTodo()"
+      style="margin-top: 1.5rem"
+    >
+      Add Todo
+    </button>
+
+    <ul lines="none">
+      <li
+        (click)="removeTodo(todo)"
+        button
+        *ngFor="let todo of allTodos$ | async"
+      >
+        <i name="checkmark-circle-outline" slot="end"></i>
+        <label> {{todo.content}} </label>
+      </li>
+    </ul>
+  </div>
+</content>
